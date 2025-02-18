@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+{% block content %}
+
+<div class="content-section">
+    
+    <form method="POST" action="{{ url_for('temperature') }}">
+        
+        <!-- below hidden tag is for including csrf token which prevent unauthorized submissions -->
+        {{ form.hidden_tag() }}
+        
+        <br>
+        <label>{{ form.value.label }}</label> 
+        {{ form.value(class="form-control") }} <br>
+        
+        <label>{{ form.dropdown.label }}</label>
+        {{ form.dropdown(class="form-control", id="dropdown1")}} <br>
+        
+        <label>{{ form.dropdown_2.label }}</label>
+        {{ form.dropdown_2(class="form-control", id="dropdown2")}} <br>
+
+        <br>
+
+        {{ form.submit(class="btn btn-primary") }}
+
+    </form>
+    
+</div>
+
+{% endblock content %}
